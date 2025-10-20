@@ -11,6 +11,5 @@ public interface AuthorService {
     public Page<Author> findAll(int page, int size);
     public Page<Book> findAllBooksByAuthorId(Long id, int page, int size);
     public Author save(Author author);
-    public Author update(Author author);
     public void delete(Long id);
 }

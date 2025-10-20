@@ -5,9 +5,8 @@ import br.com.fiap.library.entities.Book;
 import org.springframework.data.domain.Page;
 
 public interface BookService {
-    public Book findById(int id);
+    public Book findById(Long id);
     public Page<Book> findAll(int page, int size);
     public Book save(Book book);
-    public Book update(Book book);
     public void delete(Long id);
 }
