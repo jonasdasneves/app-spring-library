@@ -5,9 +5,12 @@ import br.com.fiap.library.entities.Book;
 import br.com.fiap.library.exceptions.ResourceNotFoundException;
 import br.com.fiap.library.repositories.AuthorRepository;
 import br.com.fiap.library.repositories.BookRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AuthorServiceImpl implements AuthorService {
 
     private final AuthorRepository repository;
@@ -40,6 +43,7 @@ public class AuthorServiceImpl implements AuthorService {
                         .withPage(page));
     }
 
+    @Transactional
     @Override
     public Author save(Author author) {
         return this.repository.save(author);

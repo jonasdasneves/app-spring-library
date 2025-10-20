@@ -3,9 +3,12 @@ package br.com.fiap.library.services;
 import br.com.fiap.library.entities.Book;
 import br.com.fiap.library.exceptions.ResourceNotFoundException;
 import br.com.fiap.library.repositories.BookRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BookServiceImpl implements BookService {
 
     private final BookRepository repository;
@@ -27,6 +30,7 @@ public class BookServiceImpl implements BookService {
                                 .withPage(page));
     }
 
+    @Transactional
     @Override
     public Book save(Book book) {
         return this.repository.save(book);

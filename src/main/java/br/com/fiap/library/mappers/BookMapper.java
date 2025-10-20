@@ -8,11 +8,13 @@ public class BookMapper {
 
     public static Book fromRecord(BookRecord record) {
 
+        Author author = new Author(record.authorId());
+
         return new Book(
             record.id(),
             record.title(),
             record.isbn(),
-            record.authorId());
+            author);
     }
 
     public static BookRecord toRecord(Book book) {
