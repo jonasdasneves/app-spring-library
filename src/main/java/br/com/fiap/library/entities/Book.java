@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Book {
 
@@ -20,7 +20,5 @@ public class Book {
 
     private String isbn;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "authorId", nullable = false)
-    private Author author;
+    private Long authorId;
 }

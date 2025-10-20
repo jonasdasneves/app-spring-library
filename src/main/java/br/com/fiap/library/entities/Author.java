@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Author {
@@ -25,4 +24,14 @@ public class Author {
 
     @OneToMany(mappedBy = "author", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Book> books;
+
+    public Author(Long id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public Author(Long id) {
+        this.id = id;
+    }
 }
